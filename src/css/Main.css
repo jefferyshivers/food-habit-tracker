@@ -1,0 +1,368 @@
+
+#Main {
+  position: relative;
+  float: middle;
+  top: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  height: calc(100% - 60px);
+}
+
+#Meals {
+  position: relative;
+  float: right;
+  width: 60%;
+  height: 100%;
+}
+
+#Summary {
+  position: relative;
+  float: right;
+  width: 40%;
+  height: 100%;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  #Summary {
+    width: 100%;
+    height: 140px;
+  }
+
+  #Meals {
+    width: 100%;
+    height: calc(100% - 140px);
+  }
+}
+
+
+
+
+
+
+#Main .title {
+  font-size: 16pt;
+  background: rgb(0,40,60);
+  color: white;
+  box-shadow: 0 0 4px rgba(0,0,0,.5);
+  z-index: 5;
+}
+#Meals > .title {
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  width: calc(100% - 14px);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Meals > .items {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: scroll;
+}
+
+#AddMeal {
+  position: relative;
+  float: left;
+  left: 22.5px;
+  width: calc(100% - 45px);
+  height: 100px;
+  background: white;
+  border-radius: 2px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+#AddMeal > div {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+#AddMeal i {
+  font-size: 24pt;
+}
+
+#Summary > .title {
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  width: calc(100% - 14px);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Summary > .items {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+
+@media screen and (max-width: 600px) {
+  #Main .title {
+    font-size: 12pt;
+  }
+  #Summary > .title {
+    height: 30px;
+  }
+  #Summary > .items {
+    top: 30px;
+    height: 110px;
+  }
+
+  #Meals > .title {
+    height: 30px;
+  }
+  #Meals > .items {
+    top: 30px;
+    height: calc(100% - 30px);
+  }
+  .Meal {
+
+  }
+  #AddMeal {
+
+  }
+}
+
+
+
+/*#Meals .items {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}*/
+
+
+
+
+
+#AddMealForm {
+  position: relative;
+  float: left;
+  left: 22.5px;
+  width: calc(100% - 45px);
+  /* variable height */
+  background: white;
+  margin: 40px auto;
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0,0,0,.5);
+}
+#AddMealForm > .name-container {
+  position: relative;
+  float: left;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+}
+.name-container > .name {
+  height: 20px;
+  width: 200px;
+  font-size: 14pt;
+  text-align: center;
+}
+#AddMealForm > .servings-container {
+  position: relative;
+  float: left;
+  width: calc(100% - 20px);
+  padding: 10px;
+  /* variable height */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.servings-container > .serving {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: orange;
+  box-shadow: 0 0 6px rgba(0,0,0,.5);
+  margin: 5px 3px;
+}
+.serving > .serving-name {
+  position: relative;
+  float: left;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 11pt;
+}
+.serving > .serving-number {
+  position: relative;
+  float: left;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.serving > .serving-number input {
+  height: 20px;
+  width: 45px;
+  font-size: 14pt;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  background: rgba(255,255,255,.5);
+  text-align: center;
+}
+
+#AddMealForm #submit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  border-radius: 4px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#AddMealForm #exit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.Meal {
+  position: relative;
+  float: left;
+  left: 22.5px;
+  width: calc(100% - 45px);
+
+  /* variable height */
+  background: white;
+  margin: 10px auto;
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0,0,0,.5);
+}
+.Meal > .name-container {
+  position: relative;
+  float: left;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+}
+.name-container > .name {
+  height: 20px;
+  width: 200px;
+  font-size: 14pt;
+  text-align: center;
+}
+.Meal > .servings-container {
+  position: relative;
+  float: left;
+  width: calc(100% - 20px);
+  padding: 10px;
+  /* variable height */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: white;
+}
+
+.servings-container > .serving {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: orange;
+  box-shadow: 0 0 6px rgba(0,0,0,.5);
+  margin: 5px 3px;
+}
+.serving > .serving-name {
+  position: relative;
+  float: left;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 11pt;
+}
+.serving > .serving-number {
+  position: relative;
+  float: left;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.serving > .serving-number input {
+  height: 20px;
+  width: 45px;
+  font-size: 14pt;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  background: rgba(255,255,255,.5);
+  text-align: center;
+}
+
+/*#AddMealForm #submit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  border-radius: 4px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#AddMealForm #exit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  color: white;
+}*/
