@@ -14,6 +14,8 @@ class DateDiv extends Component {
 
 
 
+
+
 class NavBar extends Component {
   render() {
     return(
@@ -38,6 +40,8 @@ class NavBar extends Component {
 
 
 
+
+
 NavBar.propTypes = {
   selectedDate: PropTypes.object.isRequired,
   onDateUp: PropTypes.func.isRequired,
@@ -45,7 +49,11 @@ NavBar.propTypes = {
 }
 
 function getCurrentDate(state) {
-  return new Date(state)
+  let date = new Date(state)
+  let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+  let months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  let dayNumMonthYear = `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+  return dayNumMonthYear
 }
 const mapStateToProps = (state) => {
   return {

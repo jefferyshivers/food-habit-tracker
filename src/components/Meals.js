@@ -18,12 +18,12 @@ export default class Meals extends Component {
 
   render() {
     let selectedDate = new Date(this.props.selectedDate)
-
     const date_minified = `${selectedDate.getDate()} ${selectedDate.getMonth() + 1} ${selectedDate.getFullYear()}`
-    const selectedMeals = this.props.meals.mealTracker[date_minified]
+    const all_meals = this.props.meals
+    const selectedMeals = all_meals[date_minified] ? all_meals[date_minified] : null
 
     const meals = () => {
-      if (selectedMeals !== undefined) {
+      if (selectedMeals !== null) {
         let items = selectedMeals.map((meal) => {
           return <Meal key={selectedMeals.indexOf(meal)} 
                        meal={meal} />
@@ -62,22 +62,31 @@ export default class Meals extends Component {
 
 class Meal extends Component {
   render() {
-    const name = () => { return this.props.meal.Name }
+    const name = () => {
+      let name = this.props.meal.Name
+      if (name === '') { name = 'Meal' }
+      return name
+    }
     // servings
     const servingTypes = ['Vegetable','Protein','Fat','Carb','Drink']
     const servings = servingTypes.map((type) => {
-      return <div className='serving' key={type}>
-              <div className='serving-name'>
-                {type}
-              </div>
-              <div className='serving-number'>
-                {this.props.meal[type]}
-              </div>
-            </div>
+      let attained = this.props.meal[type]
+      if (attained > 0) {
+        return <div className='serving' key={type}>
+                <div className='serving-name'>
+                  {type}
+                </div>
+                <div className='serving-number'>
+                  {this.props.meal[type]}
+                </div>
+              </div>   
+      } else {
+        return null
+      }
+
     })
 
     return(
-
       <div className='Meal'>
         <div className='name-container'>
           {name()}

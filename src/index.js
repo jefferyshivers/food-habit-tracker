@@ -9,7 +9,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 let today = new Date()
-const persistedState = localStorage.getItem('foodApp') ? JSON.parse(localStorage.getItem('foodApp')) : { mealTracker: {selectedDate: today} }
+let meals = {}
+const persistedState = localStorage.getItem('foodApp') ? JSON.parse(localStorage.getItem('foodApp')) : { mealTracker: {selectedDate: today, meals: meals} }
 const store = createStore(
   mealApp, 
   persistedState
@@ -18,9 +19,6 @@ const store = createStore(
 store.subscribe(() => {
   localStorage.setItem('foodApp', JSON.stringify(store.getState()))
 })
-
-
-
 
 ReactDOM.render(
   <Provider store={store}>

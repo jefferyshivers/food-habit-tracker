@@ -4,49 +4,46 @@ import React, { Component } from 'react';
 export default class Summary extends Component {
   render() {
     // servings
-    // const goals = {
-    //   Meals: 6,
-    //   Vegetable: 6,
-    //   Protein: 3,
-    //   Fat: 2,
-    //   Carb: 2,
-    //   Drink: 8
-    // }
-    const summaryItem = (type, total, goal) => {
-      return <div className='SummaryItem'>{type}: {total}/{goal}.</div>
+    const goals = {
+      Meals: 6,
+      Vegetable: 6,
+      Protein: 3,
+      Fat: 2,
+      Carb: 2,
+      Drink: 8
     }
 
-    let selectedDate = new Date(this.props.selectedDate)
-    if (selectedDate === undefined) {
-      selectedDate = new Date()
-    }
-    const date_minified = `${selectedDate.getDate()} ${selectedDate.getMonth() + 1} ${selectedDate.getFullYear()}`
-    const selectedMeals = this.props.meals.mealTracker[date_minified]
+    const summary = (date, meals) => {
+      // setup
+      const selectedDate = date ? new Date(date) : new Date()
+      const date_minified = `${selectedDate.getDate()} ${selectedDate.getMonth() + 1} ${selectedDate.getFullYear()}`
+      const selectedMeals = meals[date_minified] ? meals[date_minified] : null
 
-    const summary = () => {
-      if (selectedMeals !== undefined) {
-        let num_meals = selectedMeals.length
-        let num_veg = 0
-        let num_protein = 0
-        let num_fat = 0
-        let num_carb = 0
-        let num_drink = 0
+      // alternate: show progress if any made, otherwise don't
+      if (selectedMeals !== null) {
+        let attained = {
+          Meals: selectedMeals.length,
+          Vegetable: 0,
+          Protein: 0,
+          Fat: 0,
+          Carb: 0,
+          Drink: 0 
+        }
 
         selectedMeals.forEach((meal) => {
-          num_veg += parseInt(meal.Vegetable, 10)
-          num_protein += parseInt(meal.Protein, 10)
-          num_fat += parseInt(meal.Fat, 10)
-          num_carb += parseInt(meal.Carb, 10)
-          num_drink += parseInt(meal.Drink, 10)
+          let serving_names = Object.keys(attained)
+          serving_names.shift()
+          serving_names.forEach((name) => {
+            let val = parseInt(meal[name], 10)
+            attained[name] += val
+          })
         })
-        return <div id='Summaries'>
-                 {summaryItem('Meals',num_meals,6)}
-                 {summaryItem('Vegetable',num_veg,6)}
-                 {summaryItem('Protein',num_protein,3)}
-                 {summaryItem('Fat',num_fat,2)}
-                 {summaryItem('Carb',num_carb,2)}
-                 {summaryItem('Drink',num_drink,8)}
-               </div>
+
+        let goal_names = Object.keys(goals)
+        let summaries = goal_names.map((name) => {
+          return <SummaryItem key={name} type={name} total={attained[name]} goal={goals[name]} />
+        })
+        return summaries
       } else {
         return 'No meals yet'
       }
@@ -55,8 +52,56 @@ export default class Summary extends Component {
     return(
       <div id='Summary'>
         <div className='title'>Daily Summary</div>
-        {summary()}
+        <div id='Summaries'>
+          {summary(this.props.selectedDate, this.props.meals)}
+        </div>
       </div>
+    )
+  }
+}
+
+
+
+
+
+
+
+class SummaryItem extends Component {
+
+  render() {
+    let goal = this.props.goal
+    let goalArray = new Array(goal)
+    let attained = this.props.total
+    for (var g=0;g<goal;g++) {
+      goalArray.push({num: g})
+    }
+
+    const progress_graphic = goalArray.map((g) => {
+      let key = g + Math.random()
+      let style = {}
+      if (g['num'] < attained) {
+        style = {background: 'rgb(100,200,255)'}
+      }
+      return <div key={key} className='progress-square' style={style}></div>
+    })
+
+    const progress_fraction = () => {
+      let style = {marginLeft: '5px'}
+      if (attained > goal) {
+        style={marginLeft: '5px', color: 'rgb(200,50,50)'}
+      }
+      return <span style={style}> {this.props.total}/{this.props.goal}</span>
+    }
+
+    return(
+      <div className='SummaryItem'>
+       <div className='top'>
+         {this.props.type}: {progress_fraction()}
+       </div>
+       <div className='bottom'>
+         {progress_graphic}
+       </div>
+     </div>
     )
   }
 }

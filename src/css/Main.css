@@ -1,12 +1,15 @@
 
 #Main {
   position: relative;
-  float: middle;
+  /*float: middle;*/
   top: 0;
   margin: 0 auto;
   width: 100%;
   max-width: 1000px;
   height: calc(100% - 60px);
+  /*min-height: 600px;*/
+  /*overflow: scroll;*/
+  /*background: yellow;*/
 }
 
 #Meals {
@@ -93,35 +96,13 @@
   font-size: 24pt;
 }
 
-#Summary > .title {
-  position: relative;
-  top: 0;
-  margin: 0 auto;
-  width: calc(100% - 14px);
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#Summary > .items {
-  position: absolute;
-  top: 40px;
-  width: 100%;
-  height: calc(100% - 40px);
-  background: pink;
-}
+
+
 
 
 @media screen and (max-width: 600px) {
   #Main .title {
     font-size: 12pt;
-  }
-  #Summary > .title {
-    height: 30px;
-  }
-  #Summary > .items {
-    top: 30px;
-    height: 110px;
   }
 
   #Meals > .title {
@@ -228,7 +209,6 @@
   left: 22.5px;
   width: calc(100% - 45px);
   color: white;
-
   /* variable height */
   background: rgb(40,40,40);
   margin: 10px auto;
@@ -255,6 +235,8 @@
   border: none;
   color: white;
 }
+
+
 
 
 
@@ -310,6 +292,37 @@
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  .servings-container > .serving {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    box-shadow: 0 0 6px rgba(0,0,0,.5);
+    margin: 5px 3px;
+  }
+  .serving > .serving-name {
+    font-size: 10pt;
+    height: 35px;
+  }
+  .serving > .serving-number {
+    font-size: 10pt;
+    height: 35px;
+  }
+  .serving > .serving-number input {
+    height: 15px;
+    font-size: 12pt;
+    width: 20px;
+  }
+  #AddMealForm > .name-container {
+    /*justify-content: flex-start;*/
+  }
+  #AddMealForm > .name-container > .name {
+    width: 150px;
+    font-size: 12pt;
+    /*margin-left: 35px;*/
+  }
+}
 
 
 
@@ -323,13 +336,21 @@
 
 
 
+#Summary > .title {
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  width: calc(100% - 14px);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-
-#Summaries {
+#Summary > #Summaries {
   position: relative;
   width: calc(100% - 15px);
-  height: auto;
+  /*height: auto;*/
   margin: 0 auto;
   color: gray;
 }
@@ -341,20 +362,43 @@
   background: rgb(45,45,45);
   margin: 2px 1px;
 }
+.SummaryItem > .top,
+.SummaryItem > .bottom {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+}
+.SummaryItem > .bottom > .progress-square {
+  position: relative;
+  width: calc((100% / 9) - 6px);
+  height: 50%;
+  background: gray;
+  margin: 0 3px;
+}
+
 @media screen and (max-width: 600px) {
-  #Summaries {
+  #Summary > .title {
+    height: 30px;
+  }
+  #Summary > #Summaries {
     margin: 0 auto;
     overflow: scroll;
-    height: calc(100% - 40px);
-    width: calc(100% - 114px);
-    display: inline;
-    background: white;
+    height: calc(100% - 30px);
+    width: calc(100% - 10px);
   }
   .SummaryItem {
-    width: calc(100% / 3);
-    height: 50%;
-    margin: 0;
+    width: calc((100% / 3) - 6px);
+    height: calc(50% - 6px);
+    margin: 3px;
     display: inline-block;
-    background: none;
+    background: rgb(45,45,45);
+  }
+  .SummaryItem > .top {
+    font-size: 10pt;
   }
 }

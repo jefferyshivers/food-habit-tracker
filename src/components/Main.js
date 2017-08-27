@@ -23,9 +23,10 @@ MainContainer.propTypes = {
 
 const mapStateToProps = (state) => {
   let date = new Date(state.mealTracker.selectedDate)
+  let meals = state.mealTracker.meals
 
   return {
-    meals: state,
+    meals: meals,
     selectedDate: date
   }
 }
