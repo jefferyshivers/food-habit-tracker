@@ -22,17 +22,17 @@ MainContainer.propTypes = {
 }
 
 const mapStateToProps = (state) => {
+  let date = new Date(state.mealTracker.selectedDate)
+
   return {
     meals: state,
-    // selectedDate: state.selectedDate
+    selectedDate: date
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: meal => {
-      dispatch({ type: 'SUBMIT', meal: meal })
-    }
+    onSubmit: (meal) => dispatch({ type: 'SUBMIT', meal: meal })
   }
 }
 

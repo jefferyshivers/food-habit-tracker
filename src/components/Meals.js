@@ -17,10 +17,8 @@ export default class Meals extends Component {
   }
 
   render() {
-    let selectedDate = this.props.selectedDate
-    if (selectedDate === undefined) {
-      selectedDate = new Date()
-    }
+    let selectedDate = new Date(this.props.selectedDate)
+
     const date_minified = `${selectedDate.getDate()} ${selectedDate.getMonth() + 1} ${selectedDate.getFullYear()}`
     const selectedMeals = this.props.meals.mealTracker[date_minified]
 

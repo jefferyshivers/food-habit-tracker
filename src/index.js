@@ -8,14 +8,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-
-
-
-const persistedState = localStorage.getItem('foodApp') ? JSON.parse(localStorage.getItem('foodApp')) : {}
+let today = new Date()
+const persistedState = localStorage.getItem('foodApp') ? JSON.parse(localStorage.getItem('foodApp')) : { mealTracker: {selectedDate: today} }
 const store = createStore(
   mealApp, 
   persistedState
 )
+
 store.subscribe(() => {
   localStorage.setItem('foodApp', JSON.stringify(store.getState()))
 })

@@ -45,9 +45,9 @@
 
 #Main .title {
   font-size: 16pt;
-  background: rgb(0,40,60);
-  color: white;
-  box-shadow: 0 0 4px rgba(0,0,0,.5);
+  background: rgb(45,45,45);
+  color: rgb(100,200,255);
+  box-shadow: 0 0 8px rgba(0,0,0,.3);
   z-index: 5;
 }
 #Meals > .title {
@@ -74,7 +74,7 @@
   left: 22.5px;
   width: calc(100% - 45px);
   height: 100px;
-  background: white;
+  background: rgb(45,45,45);
   border-radius: 2px;
   margin: 10px auto;
   cursor: pointer;
@@ -108,6 +108,7 @@
   top: 40px;
   width: 100%;
   height: calc(100% - 40px);
+  background: pink;
 }
 
 
@@ -140,12 +141,6 @@
 
 
 
-/*#Meals .items {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}*/
-
 
 
 
@@ -156,7 +151,7 @@
   left: 22.5px;
   width: calc(100% - 45px);
   /* variable height */
-  background: white;
+  background: rgb(40,40,40);
   margin: 40px auto;
   border-radius: 2px;
   box-shadow: 0 0 3px rgba(0,0,0,.5);
@@ -166,11 +161,11 @@
   float: left;
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 49px;
+  border-bottom: 1px solid rgb(45,45,45);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: orange;
 }
 .name-container > .name {
   height: 20px;
@@ -190,50 +185,14 @@
   flex-wrap: wrap;
 }
 
-.servings-container > .serving {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  background: orange;
-  box-shadow: 0 0 6px rgba(0,0,0,.5);
-  margin: 5px 3px;
-}
-.serving > .serving-name {
-  position: relative;
-  float: left;
-  height: 45px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-size: 11pt;
-}
-.serving > .serving-number {
-  position: relative;
-  float: left;
-  height: 45px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.serving > .serving-number input {
-  height: 20px;
-  width: 45px;
-  font-size: 14pt;
-  border-radius: 5px;
-  box-shadow: none;
-  border: none;
-  background: rgba(255,255,255,.5);
-  text-align: center;
-}
+
 
 #AddMealForm #submit {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: white;
+  background: rgb(45,45,45);
+  color: gray;
   height: 30px;
   display: flex;
   justify-content: center;
@@ -268,9 +227,10 @@
   float: left;
   left: 22.5px;
   width: calc(100% - 45px);
+  color: white;
 
   /* variable height */
-  background: white;
+  background: rgb(40,40,40);
   margin: 10px auto;
   border-radius: 2px;
   box-shadow: 0 0 3px rgba(0,0,0,.5);
@@ -280,18 +240,25 @@
   float: left;
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 49px;
+  border-bottom: 1px solid rgb(45,45,45);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: orange;
 }
 .name-container > .name {
   height: 20px;
   width: 200px;
   font-size: 14pt;
   text-align: center;
+  background: rgb(45,45,45);
+  border: none;
+  color: white;
 }
+
+
+
+#AddMealForm > .servings-container,
 .Meal > .servings-container {
   position: relative;
   float: left;
@@ -302,32 +269,30 @@
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  background: white;
 }
-
 .servings-container > .serving {
   position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  background: orange;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
   box-shadow: 0 0 6px rgba(0,0,0,.5);
   margin: 5px 3px;
 }
 .serving > .serving-name {
   position: relative;
   float: left;
-  height: 45px;
+  height: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   font-size: 11pt;
+  color: gray;
 }
 .serving > .serving-number {
   position: relative;
   float: left;
-  height: 45px;
+  height: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -335,34 +300,61 @@
 }
 .serving > .serving-number input {
   height: 20px;
-  width: 45px;
+  width: 35px;
   font-size: 14pt;
   border-radius: 5px;
   box-shadow: none;
   border: none;
-  background: rgba(255,255,255,.5);
+  background: rgb(45,45,45);
+  color: white;
   text-align: center;
 }
 
-/*#AddMealForm #submit {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: white;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10pt;
-  border-radius: 4px;
-  padding: 0 5px;
-  cursor: pointer;
-}
 
-#AddMealForm #exit {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  cursor: pointer;
-  color: white;
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Summaries {
+  position: relative;
+  width: calc(100% - 15px);
+  height: auto;
+  margin: 0 auto;
+  color: gray;
+}
+.SummaryItem {
+  position: relative;
+  float: left;
+  width: calc(50% - 2px);
+  height: 50px;
+  background: rgb(45,45,45);
+  margin: 2px 1px;
+}
+@media screen and (max-width: 600px) {
+  #Summaries {
+    margin: 0 auto;
+    overflow: scroll;
+    height: calc(100% - 40px);
+    width: calc(100% - 114px);
+    display: inline;
+    background: white;
+  }
+  .SummaryItem {
+    width: calc(100% / 3);
+    height: 50%;
+    margin: 0;
+    display: inline-block;
+    background: none;
+  }
+}
