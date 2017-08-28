@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import '../css/Main.css'
-
-
+import '../css/Meals.css'
 
 export default class Meals extends Component {
   constructor(props) {
@@ -56,10 +54,6 @@ export default class Meals extends Component {
 
 
 
-
-
-
-
 class Meal extends Component {
   render() {
     const name = () => {
@@ -101,10 +95,6 @@ class Meal extends Component {
 
 
 
-
-
-
-
 class AddMeal extends Component {
   render() {
     return(
@@ -117,10 +107,6 @@ class AddMeal extends Component {
     )
   }
 }
-
-
-
-
 
 
 
@@ -154,9 +140,7 @@ class AddMealForm extends Component {
   }
 
   submitMeal() {
-    // reduce
     this.props.submit(this.state)
-    // exit
     this.props.exit()
   }
 

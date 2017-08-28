@@ -15,7 +15,6 @@ class DateDiv extends Component {
 
 
 
-
 class NavBar extends Component {
   render() {
     return(
@@ -40,10 +39,8 @@ class NavBar extends Component {
 
 
 
-
-
 NavBar.propTypes = {
-  selectedDate: PropTypes.object.isRequired,
+  selectedDate: PropTypes.string.isRequired,
   onDateUp: PropTypes.func.isRequired,
   onDateDown: PropTypes.func.isRequired
 }
