@@ -7,7 +7,9 @@ import '../css/NavBar.css'
 class DateDiv extends Component {
   render() {
     return(
-      <div id='selected-date'>{String(this.props.selectedDate)}</div>
+      <div id='selected-date'>
+        {String(this.props.selectedDate)}
+      </div>
     )
   }
 }
@@ -20,17 +22,13 @@ class NavBar extends Component {
     return(
       <div id='NavBar'>
         <div className='inner'>
-
           <div id='left' onClick={this.props.onDateDown}>
             <i className="material-icons">keyboard_arrow_left</i>
           </div>
-
           <DateDiv selectedDate={this.props.selectedDate} />
-
           <div id='right' onClick={this.props.onDateUp}>
             <i className="material-icons">keyboard_arrow_right</i>
           </div>
-
         </div>
       </div>
     )

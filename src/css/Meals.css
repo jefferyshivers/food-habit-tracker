@@ -6,7 +6,7 @@
   height: 100px;
   background: rgb(45,45,45);
   border-radius: 2px;
-  margin: 10px auto;
+  margin: 20px auto;
   cursor: pointer;
 }
 #AddMeal > div {
@@ -23,14 +23,14 @@
   font-size: 24pt;
 }
 
-#AddMealForm {
+#AddMealForm, .Meal {
   position: relative;
   float: left;
   left: 22.5px;
   width: calc(100% - 45px);
   /* variable height */
   background: rgb(40,40,40);
-  margin: 40px auto;
+  margin: 20px auto;
   border-radius: 2px;
   box-shadow: 0 0 3px rgba(0,0,0,.5);
 }
@@ -40,7 +40,7 @@
   top: 0;
   width: 100%;
   height: 49px;
-  border-bottom: 1px solid rgb(45,45,45);
+  border-bottom: 1px solid rgba(255,165,0,.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +50,9 @@
   width: 200px;
   font-size: 14pt;
   text-align: center;
+  background: rgb(35,35,35);
+  border: none;
+  outline: none;
 }
 #AddMealForm > .servings-container {
   position: relative;
@@ -84,7 +87,7 @@
   top: 5px;
   left: 5px;
   cursor: pointer;
-  color: white;
+  color: rgba(255,165,0,.5);
 }
 
 .Meal {
@@ -93,7 +96,7 @@
   left: 22.5px;
   width: calc(100% - 45px);
   color: white;
-  /* variable height */
+  /*variable height */
   background: rgb(40,40,40);
   margin: 10px auto;
   border-radius: 2px;
@@ -110,40 +113,57 @@
   justify-content: center;
   align-items: center;
 }
-.name-container > .name {
-  height: 20px;
-  width: 200px;
-  font-size: 14pt;
-  text-align: center;
-  background: rgb(45,45,45);
-  border: none;
-  color: white;
-}
 
-#AddMealForm > .servings-container,
+
+
+.meal-attributes {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#meal-img-container {
+  position: relative;
+  float: left;
+  width: calc(100% / 3);
+  vertical-align: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#meal-img-container > i {
+  position: relative;
+  margin: 15px;
+  color: gray;
+}
+.meal-attributes > .servings-container,
 .Meal > .servings-container {
   position: relative;
   float: left;
-  width: calc(100% - 20px);
-  padding: 10px;
+  width: calc(((100% / 3) * 2) - 10px);
+  padding: 5px;
   /* variable height */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+  background: rgb(45,45,45);
+}
+#AddMealForm .servings-container {
+  width: calc(((100% / 3) * 2) - 11px);
+  border-left: 1px solid rgba(255,165,0,.5);
 }
 .servings-container > .serving {
   position: relative;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
   box-shadow: 0 0 6px rgba(0,0,0,.5);
   margin: 5px 10px;
 }
 .serving > .serving-name {
   position: relative;
   float: left;
-  height: 40px;
+  height: 32px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -154,7 +174,7 @@
 .serving > .serving-number {
   position: relative;
   float: left;
-  height: 40px;
+  height: 32px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -175,24 +195,24 @@
 @media screen and (max-width: 600px) {
   .servings-container > .serving {
     position: relative;
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
     box-shadow: 0 0 6px rgba(0,0,0,.5);
     margin: 5px 5px;
   }
   .serving > .serving-name {
-    font-size: 10pt;
-    height: 35px;
+    font-size:9pt;
+    height: 25px;
   }
   .serving > .serving-number {
-    font-size: 10pt;
-    height: 35px;
+    font-size: 9pt;
+    height: 25px;
   }
   .serving > .serving-number input {
     height: 15px;
     font-size: 12pt;
-    width: 20px;
+    width: 25px;
   }
   #AddMealForm > .name-container > .name {
     width: 150px;

@@ -23,8 +23,10 @@ export default class Meals extends Component {
     const meals = () => {
       if (selectedMeals !== null) {
         let items = selectedMeals.map((meal) => {
-          return <Meal key={selectedMeals.indexOf(meal)} 
-                       meal={meal} />
+          return (
+            <Meal key={selectedMeals.indexOf(meal)} 
+                  meal={meal} />
+          )
         })
         return items
       } else {
@@ -34,7 +36,11 @@ export default class Meals extends Component {
 
     const addMeal = () => {
       if (this.state.addingMeal) {
-        return <AddMealForm exit={this.toggleAddMeal} submit={this.props.onSubmit} selectedDate={this.props.selectedDate}/>
+        return (
+          <AddMealForm exit={this.toggleAddMeal} 
+                       submit={this.props.onSubmit} 
+                       selectedDate={this.props.selectedDate}/>
+        )
       } else {
         return <AddMeal onClick={this.toggleAddMeal} />
       }
@@ -85,8 +91,13 @@ class Meal extends Component {
         <div className='name-container'>
           {name()}
         </div>
-        <div className='servings-container'>
-          {servings}
+        <div className='meal-attributes'>
+          <div id='meal-img-container'>
+            <i className="material-icons">add_a_photo</i>
+          </div>
+          <div className='servings-container'>
+            {servings}
+          </div>
         </div>
       </div>
     )
@@ -107,6 +118,11 @@ class AddMeal extends Component {
     )
   }
 }
+
+
+
+
+
 
 
 
@@ -145,30 +161,31 @@ class AddMealForm extends Component {
   }
 
   render() {
-
     // servings
     const servingTypes = ['Vegetable','Protein','Fat','Carb','Drink']
     const servings = servingTypes.map((type) => {
-      return <div className='serving' key={type}>
-              <div className='serving-name'>
-                {type}
-              </div>
-              <div className='serving-number'>
-                <input id={type}
-                       name={type} 
-                       type='number' 
-                       placeholder='0'
-                       min='0' 
-                       onChange={this.updateState}/>
-              </div>
-            </div>
+      return (
+        <div className='serving' key={type}>
+          <div className='serving-name'>
+            {type}
+          </div>
+          <div className='serving-number'>
+            <input id={type}
+                   name={type} 
+                   type='number' 
+                   placeholder='0'
+                   min='0' 
+                   onChange={this.updateState} />
+          </div>
+        </div>
+      )
     })
 
     // full form
     return(
       <div id='AddMealForm'>
         <div className='name-container'>
-          <input className='name' list='name' placeholder='Name for this meal' onChange={this.updateState}/>
+          <input className='name' list='name' placeholder='Name' onChange={this.updateState}/>
           <datalist id='name'>
             <option value='Breakfast'/>
             <option value='Lunch'/>
@@ -176,8 +193,13 @@ class AddMealForm extends Component {
             <option value='Snack'/>
           </datalist>
         </div>
-        <div className='servings-container'>
-          {servings}
+        <div className='meal-attributes'>
+          <div id='meal-img-container'>
+            <i className="material-icons">add_a_photo</i>
+          </div>
+          <div className='servings-container'>
+            {servings}
+          </div>
         </div>
         <div id='exit'>
           <i className="material-icons" onClick={this.props.exit}>close</i>
