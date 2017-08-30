@@ -89,6 +89,8 @@ class SummaryItem extends Component {
       let style = {marginLeft: '5px'}
       if (attained > goal) {
         style={marginLeft: '5px', color: 'rgb(200,50,50)'}
+      } else if (attained === goal) {
+        style={marginLeft: '5px', color: 'green'}
       }
       return <span style={style}> {this.props.total}/{this.props.goal}</span>
     }
